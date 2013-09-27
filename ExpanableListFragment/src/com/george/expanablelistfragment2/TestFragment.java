@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -95,17 +96,20 @@ public class TestFragment extends CustomExpandableListFragment {
                 convertView = View.inflate(getActivity(), R.layout.list_group_item, null);
                 h = new GroupViewHolder();
                 h.contentView = (TextView) convertView.findViewById(android.R.id.content);
+                h.toggleBtn = (ToggleButton) convertView.findViewById(R.id.expandable_toggle_btn);
                 convertView.setTag(h);
             } else {
                 h = (GroupViewHolder) convertView.getTag();
             }
             Pair<String, Integer> group = (Pair<String, Integer>) getGroup(groupPosition);
             h.contentView.setText(group.first);
+            h.toggleBtn.setChecked(isExpanded);
             return convertView;
         }
 
         class GroupViewHolder {
             TextView contentView;
+            ToggleButton toggleBtn;
         }
 
         @Override

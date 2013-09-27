@@ -29,6 +29,7 @@
         android:layout_alignParentRight="true"
         android:layout_toLeftOf="@android:id/content"
         android:background="@drawable/list_group_item_indicaotr"
+        android:clickable="false"
         android:focusable="false"
         android:textOff="@string/empty_string"
         android:textOn="@string/empty_string" />
